@@ -27,8 +27,13 @@ except KeyError:
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
 
-    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
+    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Paris&country=FR')
+    #r = requests.get('https://weather.talkpython.fm/api/weather/?city=La Serena&country=CL')
+    # Ville la plus proche de LSST
+    #r = requests.get('https://weather.talkpython.fm/api/weather/?city=Vicuna&country=CL')
     if r.status_code == 200:
         data = r.json()
+        #print(data)
         temperature = data["forecast"]["temp"]
-        logger.info(f'Weather in Berlin: {temperature}')
+        logger.info(f'Weather in Paris: {temperature}')
+        #logger.info(f'Weather in Vicuna: {temperature}')
